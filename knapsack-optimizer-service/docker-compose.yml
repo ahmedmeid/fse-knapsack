@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  database-service:
+    image: mongo:3.6-jessie
+    ports:
+      - 27017:27017
+
+  rest-service:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - database-service
