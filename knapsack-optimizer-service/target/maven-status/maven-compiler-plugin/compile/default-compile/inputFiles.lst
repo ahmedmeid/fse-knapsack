@@ -1,0 +1,16 @@
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/ProblemRequest.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/Task.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/service/OptimizerService.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/Application.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/SolutionResponse.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/repo/TaskRepository.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/Solution.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/optimizer/KnapsackOptimizer.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/Problem.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/TasksResponse.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/optimizer/DynamicPorgrammingKnapsackOptimizer.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/rest/KnapsackController.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/Tasks.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/service/ShutdownService.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/domain/Timestamps.java
+/Users/ahmedeid/Development/Maersk/fse-knapsack/knapsack-optimizer-service/src/main/java/com/maerskdigital/task/repo/SolutionRepository.java

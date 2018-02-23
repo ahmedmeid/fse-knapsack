@@ -1,0 +1,16 @@
+com/maerskdigital/task/repo/SolutionRepository.class
+com/maerskdigital/task/rest/KnapsackController.class
+com/maerskdigital/task/domain/ProblemRequest.class
+com/maerskdigital/task/service/OptimizerService.class
+com/maerskdigital/task/domain/Tasks.class
+com/maerskdigital/task/domain/Timestamps.class
+com/maerskdigital/task/domain/TasksResponse.class
+com/maerskdigital/task/repo/TaskRepository.class
+com/maerskdigital/task/service/ShutdownService.class
+com/maerskdigital/task/domain/Task.class
+com/maerskdigital/task/optimizer/DynamicPorgrammingKnapsackOptimizer.class
+com/maerskdigital/task/domain/SolutionResponse.class
+com/maerskdigital/task/Application.class
+com/maerskdigital/task/domain/Solution.class
+com/maerskdigital/task/domain/Problem.class
+com/maerskdigital/task/optimizer/KnapsackOptimizer.class
