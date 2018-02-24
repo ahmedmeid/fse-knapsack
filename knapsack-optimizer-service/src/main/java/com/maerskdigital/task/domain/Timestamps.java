@@ -1,5 +1,10 @@
 package com.maerskdigital.task.domain;
 
+/**
+ * Domain object for knapsack optimization task timestamps
+ * @author Ahmed Eid
+ * 
+ */
 public class Timestamps {
 	
 	private Long submitted;

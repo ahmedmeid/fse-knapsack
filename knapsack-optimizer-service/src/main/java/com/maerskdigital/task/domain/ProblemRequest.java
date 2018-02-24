@@ -1,5 +1,10 @@
 package com.maerskdigital.task.domain;
 
+/**
+ * Domain object for knapsack problem request
+ * @author Ahmed Eid
+ * 
+ */
 public class ProblemRequest {
 	
 	private Problem problem;
@@ -17,7 +22,7 @@ public class ProblemRequest {
     @Override
     public String toString()
     {
-        return "ClassPojo [problem = "+problem+"]";
+        return "ProblemRequest [problem = "+problem+"]";
     }
 
 }

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: knapsack-optimizer-service
+Implementation-Version: 0.1.0
+Built-By: ahmedeid
+Implementation-Vendor-Id: com.maerskdigital.task
+Build-Jdk: 1.8.0_144
+Implementation-URL: http://projects.spring.io/spring-boot/knapsack-opt
+ imizer-service/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

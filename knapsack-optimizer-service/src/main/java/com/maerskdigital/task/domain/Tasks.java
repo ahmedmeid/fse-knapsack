@@ -1,5 +1,10 @@
 package com.maerskdigital.task.domain;
 
+/**
+ * Domain object for knapsack optimization tasks
+ * @author Ahmed Eid
+ * 
+ */
 public class Tasks {
 
 	private Task[] submitted;

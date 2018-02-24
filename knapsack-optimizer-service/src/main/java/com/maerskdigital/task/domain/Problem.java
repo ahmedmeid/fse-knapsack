@@ -1,19 +1,23 @@
 package com.maerskdigital.task.domain;
-
+/**
+ * Domain object for knapsack problem
+ * @author Ahmed Eid
+ * 
+ */
 public class Problem
 {
-    private Long[] values;
+    private Integer[] values;
 
     private Integer[] weights;
 
     private Integer capacity;
 
-    public Long[] getValues ()
+    public Integer[] getValues ()
     {
         return values;
     }
 
-    public void setValues (Long[] values)
+    public void setValues (Integer[] values)
     {
         this.values = values;
     }

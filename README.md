@@ -1,4 +1,7 @@
 ![logo](https://upload.wikimedia.org/wikipedia/en/0/06/Maersk_Logo.svg)
+
+---
+
 # Knapsack Optimizer Service
 
 

@@ -5,7 +5,11 @@ import java.util.List;
 
 import com.maerskdigital.task.domain.Problem;
 import com.maerskdigital.task.domain.Solution;
-
+/**
+ * Knapsack dynamic programming optimizer
+ * @author Ahmed Eid
+ *
+ */
 public class DynamicPorgrammingKnapsackOptimizer implements KnapsackOptimizer{
 
 	@Override
@@ -14,7 +18,7 @@ public class DynamicPorgrammingKnapsackOptimizer implements KnapsackOptimizer{
 		
 		Integer capacity = problem.getCapacity();
 		Integer[] weights = problem.getWeights();
-		Long[] values = problem.getValues();
+		Integer[] values = problem.getValues();
 		
 		Integer nItems = weights.length;
 		

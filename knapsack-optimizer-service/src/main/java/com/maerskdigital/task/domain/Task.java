@@ -2,6 +2,11 @@ package com.maerskdigital.task.domain;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * Domain object for knapsack optimization task
+ * @author Ahmed Eid
+ * 
+ */
 public class Task {
 
 	@Id
