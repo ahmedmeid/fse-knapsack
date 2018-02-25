@@ -19,6 +19,7 @@ import com.maerskdigital.task.domain.Task;
 import com.maerskdigital.task.domain.Tasks;
 import com.maerskdigital.task.domain.TasksResponse;
 import com.maerskdigital.task.domain.Timestamps;
+import com.maerskdigital.task.exceptions.ResourceNotFoundException;
 import com.maerskdigital.task.repo.SolutionRepository;
 import com.maerskdigital.task.repo.TaskRepository;
 import com.maerskdigital.task.service.OptimizerService;
@@ -69,12 +70,20 @@ public class KnapsackController {
     
     @RequestMapping(method = RequestMethod.GET, value = "/tasks/{taskId}")
     public Task getTask(@PathVariable String taskId) {
-    	  return taskRepo.findOne(taskId);
+    	  Task task = taskRepo.findOne(taskId);
+    	  if(task == null) {
+    		  throw new ResourceNotFoundException("Task with id=\""+taskId+"\" cannot be found.");
+    	  }
+    	  return task;
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/solutions/{taskId}")
     public SolutionResponse getSolution(@PathVariable String taskId) {
-    	 return solutionRepo.findOne(taskId);
+    	 SolutionResponse solutionResp = solutionRepo.findOne(taskId);
+    	 if(solutionResp == null) {
+    		 throw new ResourceNotFoundException("No solution found for task with id=\""+taskId+"\"");
+    	 }
+    	 return solutionResp;
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/admin/tasks")

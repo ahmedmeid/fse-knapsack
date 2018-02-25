@@ -6,7 +6,7 @@ spring:
     name: knapsackOptimizer
   data:
     mongodb:
-      host: database-service
+      host: localhost
       port: 27017
 
 endpoints:

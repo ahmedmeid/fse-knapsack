@@ -9,7 +9,7 @@ public class Solution {
 	
 	private Long time;
 
-    private Integer[] items;
+    private int[] items;
 
     public Long getTime ()
     {
@@ -21,12 +21,12 @@ public class Solution {
         this.time = time;
     }
 
-    public Integer[] getItems ()
+    public int[] getItems ()
     {
         return items;
     }
 
-    public void setItems (Integer[] items)
+    public void setItems (int[] items)
     {
         this.items = items;
     }

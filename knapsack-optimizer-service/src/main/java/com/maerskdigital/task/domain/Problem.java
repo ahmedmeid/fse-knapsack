@@ -1,4 +1,7 @@
 package com.maerskdigital.task.domain;
+
+import java.util.Arrays;
+
 /**
  * Domain object for knapsack problem
  * @author Ahmed Eid
@@ -6,38 +9,48 @@ package com.maerskdigital.task.domain;
  */
 public class Problem
 {
-    private Integer[] values;
+    private int[] values;
 
-    private Integer[] weights;
+    private int[] weights;
 
-    private Integer capacity;
+    private int capacity;
+    
+    public Problem() {
+    	
+    }
+    
+    public Problem(int capacity, int[] weights, int[] values) {
+    	 this.capacity = capacity;
+    	 this.weights = weights;
+    	 this.values = values;
+    }
 
-    public Integer[] getValues ()
+    public int[] getValues ()
     {
         return values;
     }
 
-    public void setValues (Integer[] values)
+    public void setValues (int[] values)
     {
         this.values = values;
     }
 
-    public Integer[] getWeights ()
+    public int[] getWeights ()
     {
         return weights;
     }
 
-    public void setWeights (Integer[] weights)
+    public void setWeights (int[] weights)
     {
         this.weights = weights;
     }
 
-    public Integer getCapacity ()
+    public int getCapacity ()
     {
         return capacity;
     }
 
-    public void setCapacity (Integer capacity)
+    public void setCapacity (int capacity)
     {
         this.capacity = capacity;
     }
@@ -45,6 +58,6 @@ public class Problem
     @Override
     public String toString()
     {
-        return "Problem [values = "+values+", weights = "+weights+", capacity = "+capacity+"]";
+        return "Problem [values = "+Arrays.toString(values)+", weights = "+Arrays.toString(weights)+", capacity = "+capacity+"]";
     }
 }

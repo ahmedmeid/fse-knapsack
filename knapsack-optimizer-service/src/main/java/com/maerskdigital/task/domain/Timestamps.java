@@ -12,6 +12,14 @@ public class Timestamps {
     private Long started;
 
     private Long completed;
+    
+    public Timestamps() {
+    	
+    }
+    
+    public Timestamps(Long submitted) {
+    	 this.submitted = submitted;
+    }
 
     public Long getSubmitted ()
     {

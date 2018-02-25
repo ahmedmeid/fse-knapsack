@@ -1,4 +1,4 @@
-package com.maerskdigital.task.test;
+package com.maerskdigital.task.test.rest;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;

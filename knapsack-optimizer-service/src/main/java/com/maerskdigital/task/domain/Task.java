@@ -1,5 +1,7 @@
 package com.maerskdigital.task.domain;
 
+import java.util.Arrays;
+
 import org.springframework.data.annotation.Id;
 
 /**
@@ -15,7 +17,16 @@ public class Task {
 	private String status;
 	
 	private Timestamps timestamps;
+	
+	public Task() {
+		
+	}
   
+	public Task(String task, Timestamps timestamps) {
+		this.task = task;
+		status = "started";
+		this.timestamps = timestamps;		
+	}
 
     public Timestamps getTimestamps ()
     {
@@ -50,6 +61,6 @@ public class Task {
     @Override
     public String toString()
     {
-        return "Task [timestamps = "+timestamps+", status = "+status+", task = "+task+"]";
+        return "Task [task = "+task+", status = "+status+", timestamps = "+timestamps+"]";
     }
 }

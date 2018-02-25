@@ -5,6 +5,7 @@ com/maerskdigital/task/service/OptimizerService.class
 com/maerskdigital/task/domain/Tasks.class
 com/maerskdigital/task/domain/Timestamps.class
 com/maerskdigital/task/domain/TasksResponse.class
+com/maerskdigital/task/exceptions/ResourceNotFoundException.class
 com/maerskdigital/task/repo/TaskRepository.class
 com/maerskdigital/task/service/ShutdownService.class
 com/maerskdigital/task/domain/Task.class

@@ -1,6 +1,7 @@
 package com.maerskdigital.task.optimizer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.maerskdigital.task.domain.Problem;
@@ -16,11 +17,11 @@ public class DynamicPorgrammingKnapsackOptimizer implements KnapsackOptimizer{
 	public Solution solve(Problem problem) {
 		
 		
-		Integer capacity = problem.getCapacity();
-		Integer[] weights = problem.getWeights();
-		Integer[] values = problem.getValues();
+		int capacity = problem.getCapacity();
+		int[] weights = problem.getWeights();
+		int[] values = problem.getValues();
 		
-		Integer nItems = weights.length;
+		int nItems = weights.length;
 		
 		long[][] matrix = new long[nItems+1][capacity+1];
 		long[][] picks = new long[nItems+1][capacity+1];
@@ -63,12 +64,21 @@ public class DynamicPorgrammingKnapsackOptimizer implements KnapsackOptimizer{
 				item--;
 			}
 		}
-		
-		Integer[] temArray = new Integer[items.size()];
-		
-		sol.setItems(items.toArray(temArray));
+			
+		sol.setItems(convertIntegers(items));
 						
 		return sol;
+	}
+	
+	public static int[] convertIntegers(List<Integer> integers)
+	{
+	    int[] ret = new int[integers.size()];
+	    for (int i=0; i < ret.length; i++)
+	    {
+	        ret[i] = integers.get(i).intValue();
+	    }
+	    Arrays.sort(ret);
+	    return ret;
 	}
 
 }

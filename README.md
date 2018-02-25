@@ -1,4 +1,4 @@
-![logo](https://upload.wikimedia.org/wikipedia/en/0/06/Maersk_Logo.svg)
+![logo](knapsack-optimizer-service/webresources/img/maersk_logo.png)
 
 ---
 
@@ -54,16 +54,11 @@ $ _
 ```
 
 ### Building the project
-#### Prerequisites:
 
-* Java 8
-* Maven 3
-* Mongodb 3.6
-
-
-#### Building steps:
+Run the following command to pull maven image and use it to build spring project:
 
 ```sh
-mvn clean
-mvn package
+docker run -it --rm --name knapsack-optimizer-service \
+               -v "$HOME/.m2":/root/.m2 -v "$PWD":/usr/src/maven-project \
+               -w /usr/src/maven-project maven:3.5.2-jdk-8 mvn clean package
 ```

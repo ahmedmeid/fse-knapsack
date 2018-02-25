@@ -1,1 +1,7 @@
-com/maerskdigital/task/test/KnapsackControllerTests.class
+com/maerskdigital/task/test/repo/SolutionRepositoryTests.class
+com/maerskdigital/task/test/rest/ProblemRequestBuilder.class
+com/maerskdigital/task/test/rest/KnapsackControllerTests.class
+com/maerskdigital/task/test/optimizer/OptimizerTests.class
+com/maerskdigital/task/test/service/OptimizerServiceTests.class
+com/maerskdigital/task/test/repo/TaskRepositoryTests.class
+com/maerskdigital/task/test/rest/TestUtil.class

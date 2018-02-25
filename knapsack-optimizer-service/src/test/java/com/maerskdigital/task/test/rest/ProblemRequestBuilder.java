@@ -1,4 +1,4 @@
-package com.maerskdigital.task.test;
+package com.maerskdigital.task.test.rest;
 
 import com.maerskdigital.task.domain.Problem;
 import com.maerskdigital.task.domain.ProblemRequest;
@@ -19,17 +19,17 @@ public class ProblemRequestBuilder {
 		problemRequest.setProblem(problem);
 	}
 	
-	public ProblemRequestBuilder capacity(Integer capacity) {
+	public ProblemRequestBuilder capacity(int capacity) {
 		problemRequest.getProblem().setCapacity(capacity);		
 		return this;
 	}
 	
-	public ProblemRequestBuilder weights(Integer[] weights) {
+	public ProblemRequestBuilder weights(int[] weights) {
 		problemRequest.getProblem().setWeights(weights);		
 		return this;
 	}
 	
-	public ProblemRequestBuilder values(Integer[] values) {
+	public ProblemRequestBuilder values(int[] values) {
 		problemRequest.getProblem().setValues(values);	
 		return this;
 	}
