@@ -36,7 +36,7 @@ public class OptimizerService {
 		
 		task.setStatus("started");
 		
-		Long startedTime = new Date().getTime();
+		Long startedTime = new Date().getTime() / 1000;
 		
 		task.getTimestamps().setStarted(startedTime);
 		
@@ -46,7 +46,7 @@ public class OptimizerService {
 		
         task.setStatus("completed");
         
-        Long completedTime = new Date().getTime();
+        Long completedTime = new Date().getTime() / 1000;
         
         task.getTimestamps().setCompleted(completedTime);
 		

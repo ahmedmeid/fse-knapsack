@@ -6,8 +6,12 @@ spring:
     name: knapsackOptimizer
   data:
     mongodb:
-      host: localhost
-      port: 27017
+      host: ds249428.mlab.com
+      port: 49428
+      database: heroku_9d4wt4cd
+      username: heroku_9d4wt4cd
+      password: 12drk0svu9omqv0jrbsrs1ibo7
+      
 
 endpoints:
   health:

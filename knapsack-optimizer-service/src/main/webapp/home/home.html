@@ -1,0 +1,29 @@
+<div class="home">
+  <div class="jumbotron centered">
+    <h1>Knapsack Optimizer Service</h1>
+    <p>Get Task Status</p>
+    <input type="text"class="form-control" ng-model="taskId" id="taskId" placeholder="Task ID">
+    <br>
+    <p><a class="btn btn-primary btn-lg" role="button" ng-click="getTaskDetails()">Submit</a></p>
+    <h2 ng-show="response">Task Information</h2>
+    <table ng-show="response" style="width:100%">
+     <tr>
+      <th>Task ID</th>
+      <th>Status</th>
+      <th>Submitted</th>
+      <th>Started</th>
+      <th>Completed</th>
+     </tr>
+     <tr>
+      <td>{{response.task}}</td>
+      <td>{{response.status}}</td>
+      <td>{{response.submitted | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+      <td>{{response.started | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+      <td>{{response.completed | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+     </tr>
+    </table>
+  </div>
+
+
+
+</div>

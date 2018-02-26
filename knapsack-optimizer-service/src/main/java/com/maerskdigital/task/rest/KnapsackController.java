@@ -58,7 +58,8 @@ public class KnapsackController {
     	  task.setTask(taskId);
     	  task.setStatus("submitted");
     	  Timestamps timestamps = new Timestamps();
-    	  timestamps.setSubmitted(new Date().getTime());
+    	  Long submittedTime = new Date().getTime() / 1000;
+    	  timestamps.setSubmitted(submittedTime);
     	  task.setTimestamps(timestamps);
     	  
     	  taskRepo.save(task);
@@ -72,7 +73,7 @@ public class KnapsackController {
     public Task getTask(@PathVariable String taskId) {
     	  Task task = taskRepo.findOne(taskId);
     	  if(task == null) {
-    		  throw new ResourceNotFoundException("Task with id=\""+taskId+"\" cannot be found.");
+    		  throw new ResourceNotFoundException("Task with id='"+taskId+"' cannot be found.");
     	  }
     	  return task;
     }
@@ -81,7 +82,7 @@ public class KnapsackController {
     public SolutionResponse getSolution(@PathVariable String taskId) {
     	 SolutionResponse solutionResp = solutionRepo.findOne(taskId);
     	 if(solutionResp == null) {
-    		 throw new ResourceNotFoundException("No solution found for task with id=\""+taskId+"\"");
+    		 throw new ResourceNotFoundException("No solution found for task with id='"+taskId+"'");
     	 }
     	 return solutionResp;
     }

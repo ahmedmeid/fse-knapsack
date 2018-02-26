@@ -24,31 +24,60 @@ docker-compose up -d
 
 ### Interacting with the solution using the REST API
 
-The solution exposes REST API's accessible on port 8080:
+#### Register 
+```sh
+$ curl -H 'Content-type: application/json' -XPOST http://localhost:8080/users/sign-up -d '{
+	"username" : "user1",
+	"password" : "secretP@ssw0rd"
+}'
+```
+
+#### Login
+```sh
+$ curl -i -H "Content-Type: application/json" -X POST -d '{
+    "username": "user1",
+    "password": "secretP@ssw0rd"
+}' http://localhost:8080/login
+
+HTTP/1.1 200
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg
+Content-Length: 0
+Date: Mon, 26 Feb 2018 17:28:36 GMT
+```
+
+Authentication token should be sent in all requests:
 
 ```sh
-$ curl -XPOST -H 'Content-type: application/json' http://localhost:8080/knapsack/tasks \
-   -d '{"problem": {"capacity": 60, "weights": [10, 20, 33], "values": [10, 3, 30]}}'
-{"task":"9fd6d458-c024-4a10-9643-00588917ea08","status":"completed","timestamps":{"submitted":1519425117433,"started":1519425117557,"completed":1519425117560}}
+$ curl -XPOST -H 'Content-type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg' \
+http://localhost:8080/knapsack/tasks \
+-d '{"problem": {"capacity": 60, "weights": [10, 20, 33], "values": [10, 3, 30]}}'
 
-$ curl http://localhost:8080/knapsack/tasks/9fd6d458-c024-4a10-9643-00588917ea08
-{"task":"9fd6d458-c024-4a10-9643-00588917ea08","status":"completed","timestamps":{"submitted":1519425117433,"started":1519425117557,"completed":1519425117560}}
+{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","status":"started","timestamps":{"submitted":1519666287628,"started":1519666287800,"completed":null}}
 
-$ curl http://localhost:8080/knapsack/tasks/9fd6d458-c024-4a10-9643-00588917ea08
-{"task": "9fd6d458-c024-4a10-9643-00588917ea08", "status": "submitted", "timestamps": {"submitted": 1505225308, "started": 1505225320, "completed": 1505225521}}
+$ curl http://localhost:8080/knapsack/tasks/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
 
-$ curl http://localhost:8080/knapsack/solutions/9fd6d458-c024-4a10-9643-00588917ea08
-{"task": "9fd6d458-c024-4a10-9643-00588917ea08", "problem": {...}, "solution": {"items": [0, 2]}, "time": 201}
+{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","status":"completed","timestamps":{"submitted":1519666287628,"started":1519666287800,"completed":1519666287969}}
 
-$ curl http://localhost:8080/knapsack/admin/tasks
-{"tasks": {"submitted": [...], "started": [...], "completed": [...]}}
+$ curl http://localhost:8080/knapsack/solutions/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+
+{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","problem":{"values":[10,3,30],"weights":[10,20,33],"capacity":60},"solution":{"time":169,"items":[0,2]}}
 
 $ _
 ```
-### Terminating the service:
+### Terminating the service
 
 ```sh
-$ curl -XPOST http://localhost:8080/knapsack/admin/shutdown
+$ curl -XPOST http://localhost:8080/knapsack/admin/shutdown \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
 Service shutting down...
 $ _
 ```
