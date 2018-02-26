@@ -25,5 +25,5 @@
 
 ## API documentation
 
-[REST API documentation](knapsack-optimizer-service/REST_API_doc.md)
+[REST API documentation](REST_API_doc.md)
 
