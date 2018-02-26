@@ -59,17 +59,17 @@ $ curl -XPOST -H 'Content-type: application/json' \
 http://localhost:8080/knapsack/tasks \
 -d '{"problem": {"capacity": 60, "weights": [10, 20, 33], "values": [10, 3, 30]}}'
 
-{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","status":"started","timestamps":{"submitted":1519666287628,"started":1519666287800,"completed":null}}
+{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","status":"started","timestamps":{"submitted":1519666287,"started":1519666288,"completed":null}}
 
 $ curl http://localhost:8080/knapsack/tasks/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
 -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
 
-{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","status":"completed","timestamps":{"submitted":1519666287628,"started":1519666287800,"completed":1519666287969}}
+{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","status":"completed","timestamps":{"submitted":1519666287,"started":1519666288,"completed":1519666288}}
 
 $ curl http://localhost:8080/knapsack/solutions/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
 -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
 
-{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","problem":{"values":[10,3,30],"weights":[10,20,33],"capacity":60},"solution":{"time":169,"items":[0,2]}}
+{"task":"aff270fa-1c29-4b2e-96fb-ef6d6adaf31f","problem":{"values":[10,3,30],"weights":[10,20,33],"capacity":60},"solution":{"time":1,"items":[0,2]}}
 
 $ _
 ```
