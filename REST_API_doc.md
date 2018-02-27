@@ -1,267 +1,281 @@
 # REST API's documentation
 
-**Submit Task**
+**Register User**
 ----
-
-Receives a problem and submits optimization task asynchronously
+  Creates a new user.
 
 * **URL**
 
-    /knapsack/tasks
+  /users/sign-up
 
-* **Method**
+* **Method:**
 
-    `POST`
+  `POST`
+  
+*  **URL Params**
 
-* **URL Params**
-
-    None
+   None
+ 
 
 * **Data Params**
 
-    **Required:**
-    ```json
-	{
-      "problem": {
-                  "capacity": # non-negative integer
-                  "weights": # array of non-negative integers
-                  "values": # array of non-negative integers, as many as weights
-     }
-    }
-    ```
+  `{ "username" : [string], "password" : [string]}`
 
 * **Success Response:**
 
-    * **Code: 200 OK**
-        **Content:** 
-        ```json
-                {
-                  "task": # ASCII string
-                  "status": # one of "submitted", "started", "completed"
-                  "timestamps": {
-                                  "submitted": # unix/epoch time
-                                  "started": # unix/epoch time or null if not started
-                                  "completed": # unix/epoch time or null if not completed
-                                }
-                 }
-                 ```
+  * **Code:** 200 <br />
+    **Content:** None
 
+* **Sample Call:**
+
+  ```ssh
+  curl -XPOST -H 'Content-type: application/json' http://localhost:8080/users/sign-up -d '{
+  "username" : "user1",
+  "password" : "secretP@ssw0rd"
+   }' 
+  ```
+  
+  
+  **Login**
+----
+  Authenticates a user and creates a session.
+
+* **URL**
+
+  /login
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   None
+
+* **Data Params**
+
+  `{ "username" : [string], "password" : [string] }`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `None`
+ 
 * **Error Response:**
 
-  * **Code: 401 UNAUTHORIZED**
-     * **Content:** `{ error : "You are unauthorized to use this service." }`
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ "timestamp": 1519757555626, "status": 401, "error": "Unauthorized", "message": "Authentication Failed: Bad credentials", "path": "/login"}`
 
-    * ** Sample Call:**
-```javascript
-      $.ajax({
-        url: "/knapsack/tasks",
-        dataType: "json",
-        type : "POST",
-        success : function(r) {
-          console.log(r);
-        }
-      });
-      
-      ```
+* **Sample Call:**
+
+  ```ssh
+    curl -i -H "Content-Type: application/json" -X POST -d '{
+    "username": "user1",
+    "password": "secretP@ssw0rd"
+}' http://localhost:8080/login
+```
+
+**Submit Task**
+----
+  Receives a problem and submits optimization task asynchronously.
+
+* **URL**
+
+  /knapsack/tasks
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   None
+
+* **Data Params**
+
+  `{ "problem": { "capacity": [non-negative integer], "weights": [array of non-negative integers], "values": [array of non-negative integers] } }`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{"task": [string], "status": [string], "timestamps": {"submitted": [long integer], "started": [long integer], "completed": [long integer]}}`
+ 
+* **Error Response:**
+
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ "timestamp": 1519755755604, "status": 403, "error": "Forbidden", "message": "Access Denied", "path": "/knapsack/tasks" }`
+
+* **Sample Call:**
+
+  ```ssh
+  curl -H 'Content-type: application/json' -XPOST http://localhost:8080/knapsack/tasks -d '{"problem": {"capacity": 60, "weights": [10, 20, 33], "values": [10, 3, 30]}}'
+  ```
+  
+**Retreive task**
+----
+  Retreives an optimization task's information.
+
+* **URL**
+
+  /knapsack/tasks/:id
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `id=[string]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{"task": [string], "status": [string], "timestamps": {"submitted": [long integer], "started": [long integer], "completed": [long integer]}}`
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ "operationMessage": "Task with id='invalid_task_id' cannot be found.", "operationStatus": "ERROR"}`
+
+  OR
+
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ "timestamp": 1519755755604, "status": 403, "error": "Forbidden", "message": "Access Denied", "path": "/knapsack/tasks" }`
+
+* **Sample Call:**
+
+  ```ssh
+    curl http://localhost:8080/knapsack/tasks/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+```
 	  
-	  
-Retreive task
+**Retreive Solution**
+----
+  Retreive Solution
 
-Retreives an optimization task's information
+* **URL**
 
-    URL
+  Retreive Solution:id
 
-    /knapsack/tasks/{task_id}
+* **Method:**
 
-    Method:
+  `GET`
+  
+*  **URL Params**
 
-    GET
+   **Required:**
+ 
+   `id=[integer]`
 
-    URL Params
+* **Data Params**
 
-	Required
-	
-    task_id : String
+  None
 
-    Data Params
+* **Success Response:**
 
-    none
-
-    Success Response:
-        Code: 200
-        Content: {
-                  "task": # ASCII string
-                  "status": # one of "submitted", "started", "completed"
-                  "timestamps": {
-                                  "submitted": # unix/epoch time
-                                  "started": # unix/epoch time or null if not started
-                                  "completed": # unix/epoch time or null if not completed
-                                }
-                 }
-
-    Error Response:
-
-        Code: 401 UNAUTHORIZED
-        Content: { error : "You are unauthorized to use this service." }
-
-    Sample Call:
-
-      $.ajax({
-        url: "/knapsack/tasks/",
-        dataType: "json",
-        type : "POST",
-        success : function(r) {
-          console.log(r);
-        }
-      });
-	  
-Retreive Solution
-
-Retreives solution for an optimization task.
-
-    URL
-
-    /knapsack/solutions/{task_id}
-
-    Method:
-
-    GET
-
-    URL Params
-
-	Required
-	
-    task_id : String
-
-    Data Params
-
-    none
-
-    Success Response:
-        Code: 200
-        Content: {
-    "task": # ASCII string
-    "problem": {
-        "capacity": # non-negative integer
-        "weights": # array of non-negative integers
-        "values": # array of non-negative integers, as many as weights
+  * **Code:** 200 <br />
+    **Content:** `{ "task": [string] "problem": {"capacity": [non-negative integer]"weights": [array of non-negative integers],"values": [array of non-negative integers]
+    }, "solution": {"items" : [array of integers],"time": [non-negative integer] 
     }
-    "solution": {
-        "items" : # array of integers (indices to weights and values)
-        "time": # non-negative integer, time elapsed between the task was started and completed
-    }
-}
+}`
+ 
+* **Error Response:**
 
-    Error Response:
-	
-	    Code: 404 NOT_FOUND
-        Content: { error : "No sultion found for this task." }
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ "operationMessage": "Solution for task with id='task_id' cannot be found.", "operationStatus": "ERROR"}`
 
-        Code: 401 UNAUTHORIZED
-        Content: { error : "You are unauthorized to use this service." }
+  OR
 
-    Sample Call:
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ "timestamp": 1519755755604, "status": 403, "error": "Forbidden", "message": "Access Denied", "path": "/knapsack/solutions" }`
 
-      $.ajax({
-        url: "/knapsack/solutions/",
-        dataType: "json",
-        type : "GET",
-        success : function(r) {
-          console.log(r);
-        }
-      });
+* **Sample Call:**
+
+  ```ssh
+    curl http://localhost:8080/knapsack/solutions/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+```
 	  
 	  
-Retreive tasks
+**Retreive tasks**
+----
+  Retreives a list of optimization task's information.
 
-Retreives a list of optimization task's information
+* **URL**
 
-    URL
+  /knapsack/admin/tasks
 
-    /knapsack/admin/tasks
+* **Method:**
 
-    Method:
+  `GET`
+  
+*  **URL Params**
 
-    GET
+   None
 
-    URL Params
+* **Data Params**
 
-	Required
-	
-    none
+  None
 
-    Data Params
+* **Success Response:**
 
-    none
+  * **Code:** 200 <br />
+    **Content:** `[{"task": [string], "status": [string], "timestamps": {"submitted": [long integer], "started": [long integer], "completed": [long integer]}}]`
+ 
+* **Error Response:**
 
-    Success Response:
-        Code: 200
-        Content: [{
-                  "task": # ASCII string
-                  "status": # one of "submitted", "started", "completed"
-                  "timestamps": {
-                                  "submitted": # unix/epoch time
-                                  "started": # unix/epoch time or null if not started
-                                  "completed": # unix/epoch time or null if not completed
-                                }
-                 }]
 
-    Error Response:
+  * **Code:** 403 FORDIDDEN <br />
+    **Content:** `{ "timestamp": 1519755755604, "status": 403, "error": "Forbidden", "message": "Access Denied", "path": "/knapsack/tasks" }`
 
-        Code: 401 UNAUTHORIZED
-        Content: { error : "You are unauthorized to use this service." }
+* **Sample Call:**
 
-    Sample Call:
-
-      $.ajax({
-        url: "/knapsack/tasks/",
-        dataType: "json",
-        type : "GET",
-        success : function(r) {
-          console.log(r);
-        }
-      });
+  ```ssh
+    curl http://localhost:8080/knapsack/admin/tasks \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+```
 	  
 	  
-Shutdown service
+**Shutdown service**
+----
+  Stops the knapsack optimization service gracefully.
 
-Stops the knapsack optimization service gracefully
+* **URL**
 
-    URL
+  /knapsack/admin/shutdown
 
-    /knapsack/admin/shutdown
+* **Method:**
 
-    Method:
+  `POST`
+  
+*  **URL Params**
 
-    POST
+   None
 
-    URL Params
+* **Data Params**
 
-	none
+  None
 
-    Data Params
+* **Success Response:**
 
-    none
-
-    Success Response:
-        Code: 200
-        Content: "Service shutting down..."
-
-    Error Response:
-
-        Code: 401 UNAUTHORIZED
-        Content: { error : "You are unauthorized to stop this service." }
-
-    Sample Call:
-
-      $.ajax({
-        url: "/knapsack/tasks/",
-        dataType: "json",
-        type : "POST",
-        success : function(r) {
-          console.log(r);
-        }
-      });
-	  
+  * **Code:** 200 <br />
+    **Content:** `"Service shutting down..."`
+ 
+* **Error Response:**
 
 
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{ "timestamp": 1519755755604, "status": 403, "error": "Forbidden", "message": "Access Denied", "path": "/shutdown" }`
+
+* **Sample Call:**
+
+  ```ssh
+    curl -XPOST http://localhost:8080/knapsack/admin/shutdown \
+-H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+```
