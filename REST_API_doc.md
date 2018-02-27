@@ -32,11 +32,10 @@
   curl -XPOST -H 'Content-type: application/json' http://localhost:8080/users/sign-up -d '{
   "username" : "user1",
   "password" : "secretP@ssw0rd"
-   }' 
-  ```
+   }' ```
   
   
-  **Login**
+**Login**
 ----
   Authenticates a user and creates a session.
 
@@ -72,8 +71,7 @@
     curl -i -H "Content-Type: application/json" -X POST -d '{
     "username": "user1",
     "password": "secretP@ssw0rd"
-}' http://localhost:8080/login
-```
+   }' http://localhost:8080/login```
 
 **Submit Task**
 ----
@@ -151,9 +149,7 @@
 * **Sample Call:**
 
   ```ssh
-    curl http://localhost:8080/knapsack/tasks/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
--H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
-```
+    curl http://localhost:8080/knapsack/tasks/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'```
 	  
 **Retreive Solution**
 ----
@@ -198,11 +194,8 @@
 * **Sample Call:**
 
   ```ssh
-    curl http://localhost:8080/knapsack/solutions/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f \
--H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
-```
-	  
-	  
+    curl http://localhost:8080/knapsack/solutions/aff270fa-1c29-4b2e-96fb-ef6d6adaf31f -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+  	  
 **Retreive tasks**
 ----
   Retreives a list of optimization task's information.
@@ -237,9 +230,7 @@
 * **Sample Call:**
 
   ```ssh
-    curl http://localhost:8080/knapsack/admin/tasks \
--H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
-```
+    curl http://localhost:8080/knapsack/admin/tasks -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'```
 	  
 	  
 **Shutdown service**
@@ -276,6 +267,5 @@
 * **Sample Call:**
 
   ```ssh
-    curl -XPOST http://localhost:8080/knapsack/admin/shutdown \
--H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
+    curl -XPOST http://localhost:8080/knapsack/admin/shutdown -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
 ```
