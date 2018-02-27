@@ -29,10 +29,11 @@
 * **Sample Call:**
 
   ```ssh
-  curl -XPOST -H 'Content-type: application/json' http://localhost:8080/users/sign-up -d '{
-  "username" : "user1",
-  "password" : "secretP@ssw0rd"
-   }' ```
+     curl -XPOST -H 'Content-type: application/json' http://localhost:8080/users/sign-up -d '{
+     "username" : "user1",
+     "password" : "secretP@ssw0rd"
+     }' 
+  ```
   
   
 **Login**
@@ -68,10 +69,11 @@
 * **Sample Call:**
 
   ```ssh
-    curl -i -H "Content-Type: application/json" -X POST -d '{
-    "username": "user1",
-    "password": "secretP@ssw0rd"
-   }' http://localhost:8080/login```
+       curl -i -H "Content-Type: application/json" -X POST -d '{
+       "username": "user1",
+       "password": "secretP@ssw0rd"
+        }' http://localhost:8080/login
+  ```
 
 **Submit Task**
 ----
