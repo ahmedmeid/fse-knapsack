@@ -52,5 +52,5 @@ knapsack-optimizer-service
 
 ## Service on the cloud
  Knapsack service is deployed on heroku cloud free tier on the following URL:
- https://quiet-fortress-47886.herokuapp.com
+ [https://quiet-fortress-47886.herokuapp.com](https://quiet-fortress-47886.herokuapp.com)
 
