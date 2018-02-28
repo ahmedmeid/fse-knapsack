@@ -236,7 +236,45 @@
      ```ssh
       curl http://localhost:8080/knapsack/admin/tasks -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDUzMDExNn0.02oNZR0HHDhAiNu8-ayXjUbBX-K6uhUAcjgkPbIG1uNrZYBgEXpAA-fGa7rCvba4WyfvGd5nN-ueA0P4xXr_yg'
       ```
-	  
+      
+**Check service status**
+----
+  Checks the status of the knapsack optimizer service.
+
+* **URL**
+
+  /health
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   None
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{"status":"UP","diskSpace":{"status":"UP","total":402672611328,"free":320650805248,"threshold":10485760},"mongo":{"status":"UP","version":"3.4.13"}}`
+ 
+* **Error Response:**
+
+
+  * **Code:** 403 FORBIDDEN <br />
+    **Content:** `{"timestamp":1519811505157,"status":403,"error":"Forbidden","message":"Access Denied","path":"/health"}`
+
+
+* **Sample Call:**
+
+     ```ssh
+     curl http://localhost:8080/health -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMSIsImV4cCI6MTUyMDY3NTYxOX0.1oiPKR5Det_MBgSbDuoy8YDnr0T-3jyDKz0BtuUBbLoMi7ID7oHy1PogZoLdIrsFDw16s4sWdfRtKee5V1JGQ'
+     ```
+
 	  
 **Shutdown service**
 ----
