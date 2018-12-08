@@ -1,14 +1,4 @@
-![logo](knapsack-optimizer-service/webresources/img/maersk_logo.png)
-
----
-
 # Knapsack Optimizer Service
-
-
-A solution for the homework challenge for full-stack software engineer position at Maersk Digital.
-
-
-By [Ahmed Mohamed Eid](https://www.linkedin.com/in/eidam/).
 
 ## Usage
 
