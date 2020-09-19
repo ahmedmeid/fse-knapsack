@@ -1,12 +1,14 @@
 package com.maerskdigital.task.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Domain object for knapsack problem solution response
  * @author Ahmed Eid
  * 
  */
+@Document
 public class SolutionResponse {
 	
 	@Id

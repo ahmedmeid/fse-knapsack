@@ -119,7 +119,7 @@ public class KnapsackControllerTests{
     	System.out.println("in queryTask #####*****"+authenticationToken+"******########");
      	String taskId = "f5083116-2d96-49ca-9020-e9f22fa0c3bb";
 	    Task task = new Task(taskId, new Timestamps(new Date().getTime()));
-	    given(taskRepo.findOne(taskId)).willReturn(task);
+	    given(taskRepo.findById(taskId).get()).willReturn(task);
       	mockMvc.perform(get("/knapsack/tasks/f5083116-2d96-49ca-9020-e9f22fa0c3bb")
       			    .header("Authorization", authenticationToken))
                     .andDo(print()).andExpect(status().isOk());
@@ -135,7 +135,7 @@ public class KnapsackControllerTests{
     	    solutionResp.setProblem(new Problem(60, new int[] {10, 20, 33}, new int[] {10, 3, 30}));
     	    solutionResp.setTask("f5083116-2d96-49ca-9020-e9f22fa0c3bb");
     	    solutionResp.setSolution(solution);
-    	    given(solutionRepo.findOne("f5083116-2d96-49ca-9020-e9f22fa0c3bb")).willReturn(solutionResp);
+    	    given(solutionRepo.findById("f5083116-2d96-49ca-9020-e9f22fa0c3bb").get()).willReturn(solutionResp);
       	mockMvc.perform(get("/knapsack/solutions/f5083116-2d96-49ca-9020-e9f22fa0c3bb")
       			.header("Authorization", authenticationToken))
                 .andDo(print()).andExpect(status().isOk());

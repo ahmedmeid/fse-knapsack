@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ import com.maerskdigital.task.repo.SolutionRepository;
 import com.maerskdigital.task.repo.TaskRepository;
 import com.maerskdigital.task.service.OptimizerService;
 import com.maerskdigital.task.service.ShutdownService;
+
 
 @RestController
 @RequestMapping("/knapsack")
@@ -48,7 +50,7 @@ public class KnapsackController {
     SolutionRepository solutionRepo;
     
     
-    Logger log = Logger.getLogger(KnapsackController.class);
+    Logger log = LoggerFactory.getLogger(KnapsackController.class);
     
     @RequestMapping(method = RequestMethod.POST, value = "/tasks")
     public Task postProblem(@RequestBody ProblemRequest problemReq) {
@@ -71,7 +73,7 @@ public class KnapsackController {
     
     @RequestMapping(method = RequestMethod.GET, value = "/tasks/{taskId}")
     public Task getTask(@PathVariable String taskId) {
-    	  Task task = taskRepo.findOne(taskId);
+    	  Task task = taskRepo.findById(taskId).get();
     	  if(task == null) {
     		  throw new ResourceNotFoundException("Task with id='"+taskId+"' cannot be found.");
     	  }
@@ -80,7 +82,7 @@ public class KnapsackController {
     
     @RequestMapping(method = RequestMethod.GET, value = "/solutions/{taskId}")
     public SolutionResponse getSolution(@PathVariable String taskId) {
-    	 SolutionResponse solutionResp = solutionRepo.findOne(taskId);
+    	 SolutionResponse solutionResp = solutionRepo.findById(taskId).get();
     	 if(solutionResp == null) {
     		 throw new ResourceNotFoundException("No solution found for task with id='"+taskId+"'");
     	 }

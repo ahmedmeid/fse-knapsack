@@ -2,10 +2,7 @@ package com.maerskdigital.task.domain;
 
 import java.util.Arrays;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
 
 /**
  * Domain object for knapsack problem
@@ -14,13 +11,10 @@ import org.hibernate.validator.constraints.Length;
  */
 public class Problem
 {
-	@NotNull
     private int[] values;
 
-	@NotNull
     private int[] weights;
 
-	@NotNull
     private int capacity;
     
     public Problem() {

@@ -1,14 +1,14 @@
 package com.maerskdigital.task.domain;
 
-import java.util.Arrays;
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Domain object for knapsack optimization task
  * @author Ahmed Eid
  * 
  */
+@Document
 public class Task {
 
 	@Id

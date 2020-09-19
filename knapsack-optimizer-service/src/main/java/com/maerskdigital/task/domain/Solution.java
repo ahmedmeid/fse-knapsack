@@ -1,5 +1,6 @@
 package com.maerskdigital.task.domain;
 
+
 /**
  * Domain object for knapsack problem solution
  * @author Ahmed Eid

@@ -1,7 +1,0 @@
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/rest/TestUtil.java
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/optimizer/OptimizerTests.java
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/repo/SolutionRepositoryTests.java
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/rest/ProblemRequestBuilder.java
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/repo/TaskRepositoryTests.java
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/service/OptimizerServiceTests.java
-/usr/src/maven-project/src/test/java/com/maerskdigital/task/test/rest/KnapsackControllerTests.java
