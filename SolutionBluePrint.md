@@ -48,7 +48,7 @@ knapsack-optimizer-service
 
 ## API documentation
 
-[REST API documentation](https://github.com/ahmedmeid/fse-knapsack/src/REST_API_doc.md)
+[REST API documentation](https://github.com/ahmedmeid/fse-knapsack/blob/master/REST_API_doc.md)
 
 ## Service on the cloud
  Knapsack service is deployed on heroku cloud free tier on the following URL:
